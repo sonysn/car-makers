@@ -17,22 +17,25 @@ This is a simple API that gets car manufacturers and their respective models
 
 What things you need to install the software.
 
-```
-Go
-```
-Docker (if you sre a Docker fan)
+- Go
+- Docker (if you sre a Docker fan)
 
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running.
 
 Clone the Project
+Run
 ```
-Run go server.go
+go server.go
 ```
-or docker-compose up
+or
 ```
-or build an image with the Docker build command
+docker-compose up
+```
+or build and image with
+```
+docker build
 ```
 
 ## Usage <a name = "usage"></a>
