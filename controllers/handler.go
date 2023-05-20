@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -10,6 +11,12 @@ import (
 type Vehicle struct {
 	MAKE   string   `json:"MAKE"`
 	MODELS []string `json:"MODELS"`
+}
+
+var timesRequested int
+
+func increment() {
+	timesRequested++
 }
 
 func Handler(res http.ResponseWriter, req *http.Request) {
@@ -25,6 +32,8 @@ func Handler(res http.ResponseWriter, req *http.Request) {
 	}
 	res.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(res).Encode(jsonbody)
+	increment()
+	fmt.Printf("This service has been used %d times\n", timesRequested)
 
 	// // fmt.Println(req.Body)
 	// v, _ := ioutil.ReadAll(req.Body)
