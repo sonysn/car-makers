@@ -21,6 +21,7 @@ func main() {
 func server() {
 	PORT := os.Getenv("PORT")
 	http.HandleFunc("/", controllers.Handler)
+	http.HandleFunc("/getAPIKEY", controllers.APIKEY)
 	fmt.Println("Server listening on port:", PORT)
 	port := ":" + PORT
 	http.ListenAndServe(port, nil)

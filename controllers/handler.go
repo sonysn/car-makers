@@ -13,6 +13,10 @@ type Vehicle struct {
 	MODELS []string `json:"MODELS"`
 }
 
+type Keys struct {
+	KEY string
+}
+
 var timesRequested int
 
 func increment() {
@@ -44,4 +48,13 @@ func Handler(res http.ResponseWriter, req *http.Request) {
 	// }
 
 	// fmt.Printf("json data: %s\n", jsonN)
+}
+
+func APIKEY(res http.ResponseWriter, req *http.Request) {
+	apiKey := os.Getenv("APIKEY")
+	//fmt.Println(APIKEY)
+
+	data := Keys{apiKey}
+	res.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(res).Encode(data)
 }
